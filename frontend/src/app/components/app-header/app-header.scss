@@ -1,0 +1,147 @@
+:host {
+  position: sticky;
+  z-index: 10;
+  top: 0;
+  display: block;
+}
+
+.app-header {
+  display: flex;
+  height: 76px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0 clamp(1.15rem, 3vw, 2.65rem);
+  border-bottom: 1px solid var(--color-border);
+  background: rgb(255 255 255 / 92%);
+  backdrop-filter: blur(14px);
+}
+
+.header-leading,
+.header-actions,
+.breadcrumb {
+  display: flex;
+  align-items: center;
+}
+
+.header-leading {
+  min-width: 0;
+  gap: 0.85rem;
+}
+
+.breadcrumb {
+  gap: 0.6rem;
+  color: var(--color-text-muted);
+  font-size: 0.76rem;
+}
+
+.breadcrumb-divider {
+  color: #b8c0b9;
+}
+
+.breadcrumb strong {
+  color: var(--color-text);
+  font-weight: 620;
+}
+
+.header-actions {
+  gap: 1.1rem;
+}
+
+.prototype-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.42rem 0.66rem;
+  color: #72591f;
+  border: 1px solid #ece2ca;
+  border-radius: 999px;
+  background: #fbf7ee;
+  font-size: 0.66rem;
+  font-weight: 600;
+}
+
+.prototype-label span {
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background: var(--color-gold);
+}
+
+.header-divider {
+  width: 1px;
+  height: 1.5rem;
+  background: var(--color-border);
+}
+
+.help-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+  padding: 0.3rem 0;
+  color: #637067;
+  border: 0;
+  background: transparent;
+  font-size: 0.75rem;
+}
+
+.help-button:disabled {
+  cursor: default;
+  opacity: 0.8;
+}
+
+.user-avatar {
+  display: grid;
+  width: 2.25rem;
+  height: 2.25rem;
+  place-items: center;
+  color: var(--color-forest);
+  border: 1px solid #dce6dc;
+  border-radius: 50%;
+  background: #edf3eb;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.menu-button {
+  display: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  place-items: center;
+  color: var(--color-forest);
+  border: 1px solid var(--color-border);
+  border-radius: 0.65rem;
+  background: var(--color-surface);
+}
+
+@media (max-width: 720px) {
+  .app-header {
+    height: 68px;
+    padding-inline: 1rem;
+  }
+
+  .menu-button {
+    display: grid;
+  }
+
+  .header-actions {
+    gap: 0.7rem;
+  }
+
+  .help-button,
+  .header-divider {
+    display: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .breadcrumb > span:first-child,
+  .breadcrumb-divider {
+    display: none;
+  }
+
+  .prototype-label {
+    padding: 0.38rem 0.55rem;
+  }
+}

@@ -1,0 +1,87 @@
+<section class="welcome-page" aria-labelledby="welcome-title">
+  @if (!conversation()) {
+    <div class="welcome-intro">
+      <div class="greeting-mark"><ui-icon name="sparkles" [size]="20" /></div>
+      <p class="eyebrow">AI-POWERED INTAKE SUPPORT</p>
+      <h1 id="welcome-title">Good morning</h1>
+      <h2>How can I help you today?</h2>
+      <p class="intro-copy">
+        Ask a question about submission intake, or choose a prompt to get started.
+        I can help organize information while you stay in control of every decision.
+      </p>
+    </div>
+
+    <div class="suggestions-section">
+      <div class="section-heading">
+        <span>Suggested questions</span>
+        <span class="selection-hint">Choose one to see a local demonstration</span>
+      </div>
+      <div class="suggestion-grid">
+        @for (suggestion of suggestions; track suggestion.text) {
+          <button
+            class="suggestion-card"
+            type="button"
+            (click)="selectQuestion(suggestion.text)"
+            [attr.aria-label]="'Ask: ' + suggestion.text"
+          >
+            <span class="suggestion-icon"><ui-icon [name]="suggestion.icon" [size]="18" /></span>
+            <span class="suggestion-copy">
+              <strong>{{ suggestion.text }}</strong>
+              <span>{{ suggestion.detail }}</span>
+            </span>
+            <span class="suggestion-arrow" aria-hidden="true">↗</span>
+          </button>
+        }
+      </div>
+    </div>
+
+    <app-privacy-notice />
+
+    <div class="composer-section">
+      <div class="mode-row">
+        <span class="mode-indicator">
+          <ui-icon name="sparkles" [size]="15" />
+          Guidance mode
+        </span>
+        <span class="human-review-label">
+          <ui-icon name="user" [size]="15" />
+          Human review required
+        </span>
+      </div>
+      <app-chat-composer [draft]="draft()" (draftChange)="draft.set($event)" (submitQuestion)="ask($event)" />
+    </div>
+
+    <p class="disclaimer">
+      This assistant does not make underwriting decisions or access live submission systems.
+    </p>
+  } @else {
+    <div class="conversation-header">
+      <div>
+        <p class="eyebrow">AI-POWERED INTAKE SUPPORT</p>
+        <h1 id="welcome-title">AI Assistant</h1>
+      </div>
+      <button class="clear-button" type="button" (click)="clearConversation()">Clear conversation</button>
+    </div>
+
+    <div class="conversation-thread" aria-live="polite" aria-label="Conversation">
+      @for (turn of turns(); track $index) {
+        <article class="user-message">
+          <div class="user-bubble">{{ turn.question }}</div>
+          <span class="user-avatar" aria-label="You">You</span>
+        </article>
+        <app-assistant-response [response]="turn.response" />
+      }
+    </div>
+
+    <app-privacy-notice />
+
+    <div class="conversation-composer">
+      <div class="mode-row">
+        <span class="mode-indicator"><ui-icon name="sparkles" [size]="15" /> Guidance mode</span>
+        <span class="human-review-label"><ui-icon name="user" [size]="15" /> Human review required</span>
+      </div>
+      <app-chat-composer [draft]="draft()" (draftChange)="draft.set($event)" (submitQuestion)="ask($event)" />
+      <p class="disclaimer">Local synthetic demonstration only. No live submissions or underwriting decisions are available.</p>
+    </div>
+  }
+</section>

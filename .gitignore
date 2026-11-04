@@ -1,0 +1,21 @@
+# Environment secrets
+.env
+.env.*
+!.env.example
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+.venv/
+
+# Node & Build artifacts
+node_modules/
+dist/
+.angular/

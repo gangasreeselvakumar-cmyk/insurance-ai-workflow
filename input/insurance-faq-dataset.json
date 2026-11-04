@@ -1,0 +1,152 @@
+[
+  {
+    "id": "faq-001",
+    "category": "Getting started",
+    "question": "What is the Insurance Submission Intake Assistant for?",
+    "answer": "It helps users organize submission information, review available documents, summarize supplied details, and identify questions or items that may need follow-up. It supports intake work; it does not make underwriting decisions. Use your insurer’s actual procedures for required steps and approvals."
+  },
+  {
+    "id": "faq-002",
+    "category": "Getting started",
+    "question": "How should I begin reviewing a submission?",
+    "answer": "Start with the submission identifier and the information available to you. Review the supplied application and supporting materials, note what is present or unclear, and follow your insurer’s intake procedure. The correct sequence may vary by insurer and line of business."
+  },
+  {
+    "id": "faq-003",
+    "category": "Getting started",
+    "question": "Can I ask the assistant questions in everyday language?",
+    "answer": "Yes. Ask a clear question about the submission information you are authorized to use, such as “Summarize the documents provided for synthetic submission SYNTH-1001.” Check the answer against its cited source material and your insurer’s procedures."
+  },
+  {
+    "id": "faq-004",
+    "category": "Getting started",
+    "question": "What should I do if I do not know a submission number?",
+    "answer": "Use the search options available in your insurer’s system, such as a business name or another supported identifier. Search fields and access depend on the configured system. Do not use information you are not authorized to access."
+  },
+  {
+    "id": "faq-005",
+    "category": "Insurance submission intake",
+    "question": "What does submission intake mean?",
+    "answer": "Submission intake is the process of receiving and organizing information for review. It may include checking identifiers, documents, and unanswered questions. The exact intake steps and responsibilities depend on the insurer’s procedures."
+  },
+  {
+    "id": "faq-006",
+    "category": "Insurance submission intake",
+    "question": "What information is useful for identifying a submission?",
+    "answer": "A submission ID is often a useful starting point. Depending on the insurer’s system, other supported search details may include a business name or line of business. Confirm the available fields and avoid assuming that a search covers every source."
+  },
+  {
+    "id": "faq-007",
+    "category": "Insurance submission intake",
+    "question": "Can the assistant summarize a submission?",
+    "answer": "It can help summarize information that is supplied or available through an authorized, configured source. Treat the summary as a starting point, check important details against the original materials, and follow your insurer’s review procedure. If no source is connected, the assistant cannot retrieve submission data."
+  },
+  {
+    "id": "faq-008",
+    "category": "Insurance submission intake",
+    "question": "How should I handle conflicting details in submission documents?",
+    "answer": "Record the conflicting values and where each one appears, then ask an authorized underwriter or intake lead how to proceed. Do not silently choose one value. The insurer’s procedures determine how the discrepancy should be resolved."
+  },
+  {
+    "id": "faq-009",
+    "category": "Insurance submission intake",
+    "question": "Can the assistant decide whether a submission is ready for underwriting?",
+    "answer": "No. It may help organize information or show an administrative status when the system supports it, but readiness definitions depend on the insurer’s actual workflow. Administrative completeness is not an underwriting approval or coverage decision."
+  },
+  {
+    "id": "faq-010",
+    "category": "Insurance submission intake",
+    "question": "Can the assistant draft a broker follow-up?",
+    "answer": "It may help prepare a draft based on items you have verified. Review and edit the message before using it. Sending is a separate action and must only occur through an authorized, configured process with the required human confirmation."
+  },
+  {
+    "id": "faq-011",
+    "category": "Required documents and missing information",
+    "question": "Which documents are required for a submission?",
+    "answer": "Requirements vary by insurer, product, line of business, and submission circumstances. Check the insurer’s current checklist or procedures. The assistant should not invent a required-document list."
+  },
+  {
+    "id": "faq-012",
+    "category": "Required documents and missing information",
+    "question": "How can I tell whether a document is missing?",
+    "answer": "Check the applicable insurer-approved checklist and the sources you are authorized to review. If a source was not available or could not be checked, say that the document was not found in the checked sources rather than declaring it missing."
+  },
+  {
+    "id": "faq-013",
+    "category": "Required documents and missing information",
+    "question": "What is the difference between “not found” and “missing”?",
+    "answer": "“Not found” means the item was not located in the sources that were checked. “Missing” should be used only when the applicable process and evidence support that conclusion. Your insurer’s checklist and source coverage determine how to label the status."
+  },
+  {
+    "id": "faq-014",
+    "category": "Required documents and missing information",
+    "question": "What if I cannot access the document repository?",
+    "answer": "State that the source could not be accessed and that the document status is unverified. Follow your insurer’s procedure to restore access or ask an authorized colleague to check. Do not tell a broker that a document is missing based only on an access problem."
+  },
+  {
+    "id": "faq-015",
+    "category": "Required documents and missing information",
+    "question": "What if a document is present but some details need checking?",
+    "answer": "Mark the detail for human verification and point to the relevant source if available. Do not treat an unverified value as confirmed. Follow the insurer’s review process for corrections or clarification."
+  },
+  {
+    "id": "faq-016",
+    "category": "Required documents and missing information",
+    "question": "Can the assistant decide which checklist applies?",
+    "answer": "Only if the insurer has configured and approved that capability and the relevant information is available. Otherwise, confirm the applicable checklist with an authorized intake or underwriting contact."
+  },
+  {
+    "id": "faq-017",
+    "category": "Submission status and workflow",
+    "question": "Where can I check a submission’s status?",
+    "answer": "Use the insurer’s designated system or workflow, if available to you. Status names and meanings are organization-specific. If the assistant cannot access a verified status source, it should say that the status is unavailable rather than guess."
+  },
+  {
+    "id": "faq-018",
+    "category": "Submission status and workflow",
+    "question": "What does “pending” mean?",
+    "answer": "The meaning of “pending” depends on the insurer’s workflow and status definitions. Check the system’s guidance or ask the workflow owner before interpreting it as a particular action or decision."
+  },
+  {
+    "id": "faq-019",
+    "category": "Submission status and workflow",
+    "question": "What should I do when a search returns no results?",
+    "answer": "Check the identifier for typing errors and try another supported search field if permitted. A no-result message means no match was found in the sources searched; it does not prove that no submission exists elsewhere. Follow your insurer’s process if you still cannot locate it."
+  },
+  {
+    "id": "faq-020",
+    "category": "Submission status and workflow",
+    "question": "Can the assistant show my assigned or priority submissions?",
+    "answer": "Only if the system has a configured, authorized, and sufficiently current source for assignment or priority information. If those definitions or data are unavailable, do not treat an example or stale display as a live queue."
+  },
+  {
+    "id": "faq-021",
+    "category": "Underwriter review and escalation",
+    "question": "Who makes the underwriting decision?",
+    "answer": "An authorized underwriting professional makes underwriting decisions under the insurer’s procedures and authority. The assistant can organize or summarize information but must not approve, decline, price, or bind a risk."
+  },
+  {
+    "id": "faq-022",
+    "category": "Underwriter review and escalation",
+    "question": "When should I escalate a submission question?",
+    "answer": "Escalate when the information is conflicting, unclear, unavailable, outside your role, or requires a business decision. Use the insurer’s escalation path and consult the relevant underwriter, manager, or workflow owner."
+  },
+  {
+    "id": "faq-023",
+    "category": "Underwriter review and escalation",
+    "question": "Should I rely on an AI-generated summary without checking the source?",
+    "answer": "No. Treat it as a navigation and review aid. Check important facts against the original documents or records, especially when information is incomplete or inconsistent. Follow your insurer’s procedures for documenting review."
+  },
+  {
+    "id": "faq-024",
+    "category": "Data privacy and safe AI usage",
+    "question": "Can I enter real customer or submission data into the assistant?",
+    "answer": "Only if your insurer has approved this assistant, its data handling, and the specific information for that use. Otherwise, use synthetic examples and do not enter customer, broker, policy, or submission details. Follow your organization’s privacy and security instructions."
+  },
+  {
+    "id": "faq-025",
+    "category": "Data privacy and safe AI usage",
+    "question": "How should I handle an answer that seems wrong or unsupported?",
+    "answer": "Do not rely on it as confirmed. Verify it against an authorized source, correct or report the issue through your insurer’s approved process, and escalate consequential discrepancies to an authorized human reviewer. Never treat an unsupported AI response as an underwriting decision."
+  }
+]

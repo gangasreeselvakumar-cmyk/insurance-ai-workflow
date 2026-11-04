@@ -1,0 +1,28 @@
+<section class="composer-wrap" aria-label="Assistant question composer">
+  <div class="composer-card">
+    <label class="visually-hidden" for="assistant-question">Ask an intake question</label>
+    <textarea
+      id="assistant-question"
+      rows="2"
+      [value]="draft"
+      (input)="updateDraft($event)"
+      (keydown.enter)="handleEnter($event)"
+      placeholder="Ask a question about submission intake..."
+      aria-describedby="composer-status"
+    ></textarea>
+    <div class="composer-toolbar">
+      <button class="tool-button attachment-button" type="button" disabled aria-label="Attachments are not available in this prototype">
+        <ui-icon name="paperclip" [size]="18" />
+        <span>Attach</span>
+      </button>
+      <span class="composer-hint">Synthetic examples only</span>
+      <button class="send-button" type="button" [disabled]="!draft.trim()" (click)="submitDraft()" aria-label="Send question to local demonstration">
+        <span>Send</span>
+        <ui-icon name="arrow-up" [size]="17" />
+      </button>
+    </div>
+  </div>
+  <p class="composer-status" id="composer-status">
+    Local demonstration only. Unsupported questions receive a safe response; no message is sent to a service.
+  </p>
+</section>

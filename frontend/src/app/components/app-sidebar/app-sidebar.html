@@ -1,0 +1,53 @@
+<aside class="sidebar" aria-label="Application navigation">
+  <div class="brand-lockup">
+    <span class="brand-mark"><ui-icon name="shield-check" [size]="21" /></span>
+    <span class="brand-copy">
+      <strong>Submission Intake</strong>
+      <span>AI Underwriting Assistant</span>
+    </span>
+  </div>
+
+  <div class="workspace-switcher" aria-label="Current workspace">
+    <span class="workspace-avatar">UW</span>
+    <span class="workspace-copy">
+      <strong>Underwriting</strong>
+      <span>Commercial lines</span>
+    </span>
+    <ui-icon class="switcher-chevron" name="chevron-down" [size]="16" />
+  </div>
+
+  <nav class="primary-nav" aria-label="Main menu">
+    <p class="nav-label">WORKSPACE</p>
+    @for (item of items; track item.label) {
+      <button
+        class="nav-item"
+        [class.is-active]="item.active"
+        [disabled]="!item.active"
+        [attr.aria-current]="item.active ? 'page' : null"
+        [attr.aria-label]="item.active ? item.label : item.label + ' (not connected in this prototype)'"
+        type="button"
+        (click)="closeOnSmallScreen()"
+      >
+        <ui-icon [name]="item.icon" [size]="19" />
+        <span>{{ item.label }}</span>
+        @if (item.active) {
+          <span class="active-indicator" aria-hidden="true"></span>
+        }
+      </button>
+    }
+  </nav>
+
+  <div class="sidebar-bottom">
+    <div class="prototype-note">
+      <span class="prototype-indicator" aria-hidden="true"></span>
+      <div>
+        <strong>Learning prototype</strong>
+        <span>Synthetic examples only</span>
+      </div>
+    </div>
+    <div class="sidebar-footer">
+      <span>Commercial insurance</span>
+      <span>Intake support</span>
+    </div>
+  </div>
+</aside>

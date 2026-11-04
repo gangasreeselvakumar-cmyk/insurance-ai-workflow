@@ -1,0 +1,62 @@
+<article class="response-card" aria-label="Assistant response">
+  <header class="response-header">
+    <span class="assistant-mark"><ui-icon name="sparkles" [size]="18" /></span>
+    <div class="assistant-identity">
+      <strong>Intake Assistant</strong>
+      <span>AI guidance</span>
+    </div>
+    <span class="synthetic-badge"><span></span> Synthetic demonstration</span>
+  </header>
+
+  @if (response.unsupportedAction) {
+    <div class="decision-alert" role="status">
+      <ui-icon name="shield-check" [size]="18" />
+      <div>
+        <strong>Unsupported Action</strong>
+        <span>Human Decision Required</span>
+      </div>
+    </div>
+  }
+
+  <p class="response-text">{{ response.text }}</p>
+
+  @if (response.importantConsideration) {
+    <section class="consideration">
+      <div class="consideration-heading"><ui-icon name="message" [size]="16" /> Important consideration</div>
+      <p>{{ response.importantConsideration }}</p>
+    </section>
+  }
+
+  @if (response.source; as source) {
+    <section class="source-card" aria-label="FAQ source reference">
+      <div class="source-mark"><ui-icon name="file-text" [size]="17" /></div>
+      <div class="source-copy">
+        <span class="source-label">Source · {{ source.category }}</span>
+        <strong>{{ source.title }}</strong>
+        <span class="source-id">FAQ ID: {{ source.id }}</span>
+      </div>
+      <button class="source-action" type="button" (click)="toggleSource()" [attr.aria-expanded]="sourceOpen">
+        {{ sourceOpen ? 'Hide source' : 'View source' }}
+      </button>
+      @if (sourceOpen) {
+        <div class="source-detail">
+          <span>{{ source.id }} · {{ source.category }}</span>
+          <strong>{{ source.title }}</strong>
+          <p>{{ source.answer }}</p>
+        </div>
+      }
+    </section>
+
+    <footer class="response-actions">
+      <button type="button" (click)="copyResponse()"><ui-icon name="copy" [size]="15" /> Copy</button>
+      <span class="action-divider"></span>
+      <button type="button" [class.is-selected]="feedback === 'helpful'" [attr.aria-pressed]="feedback === 'helpful'" (click)="setFeedback('helpful')">
+        <ui-icon name="thumbs-up" [size]="15" /> Helpful
+      </button>
+      <button type="button" [class.is-selected]="feedback === 'not-helpful'" [attr.aria-pressed]="feedback === 'not-helpful'" (click)="setFeedback('not-helpful')">
+        <ui-icon name="thumbs-down" [size]="15" /> Not helpful
+      </button>
+      @if (copyStatus) { <span class="copy-status" role="status">{{ copyStatus }}</span> }
+    </footer>
+  }
+</article>

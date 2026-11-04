@@ -1,0 +1,27 @@
+<header class="app-header">
+  <div class="header-leading">
+    <button
+      class="menu-button"
+      type="button"
+      aria-label="Open navigation menu"
+      (click)="toggleMenu()"
+    >
+      <ui-icon name="menu" [size]="21" />
+    </button>
+    <div class="breadcrumb">
+      <span>Workspace</span>
+      <span class="breadcrumb-divider" aria-hidden="true">/</span>
+      <strong>AI Assistant</strong>
+    </div>
+  </div>
+
+  <div class="header-actions">
+    <span class="prototype-label"><span aria-hidden="true"></span> Prototype</span>
+    <span class="header-divider" aria-hidden="true"></span>
+    <button class="help-button" type="button" disabled aria-label="Help is not connected in this prototype">
+      <ui-icon name="help" [size]="18" />
+      <span>Help</span>
+    </button>
+    <span class="user-avatar" aria-label="Underwriter profile">UW</span>
+  </div>
+</header>

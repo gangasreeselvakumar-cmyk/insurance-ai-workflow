@@ -1,0 +1,255 @@
+:host {
+  display: block;
+}
+
+.response-card {
+  overflow: hidden;
+  padding: 1.2rem 1.3rem 0.65rem;
+  border: 1px solid var(--color-border);
+  border-radius: 1rem;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+}
+
+.response-header,
+.assistant-identity,
+.synthetic-badge,
+.decision-alert,
+.consideration-heading,
+.response-actions,
+.response-actions button {
+  display: flex;
+  align-items: center;
+}
+
+.response-header {
+  gap: 0.7rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #edf0eb;
+}
+
+.assistant-mark,
+.source-mark {
+  display: grid;
+  width: 2.3rem;
+  height: 2.3rem;
+  flex: 0 0 auto;
+  place-items: center;
+  color: var(--color-forest);
+  border-radius: 0.75rem;
+  background: var(--color-forest-soft);
+}
+
+.assistant-identity {
+  align-items: flex-start;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.13rem;
+}
+
+.assistant-identity strong {
+  color: #29382e;
+  font-size: 0.78rem;
+}
+
+.assistant-identity span,
+.source-label,
+.source-id {
+  color: #818b83;
+  font-size: 0.65rem;
+}
+
+.synthetic-badge {
+  gap: 0.38rem;
+  padding: 0.38rem 0.58rem;
+  color: #647269;
+  border: 1px solid #e6ebe5;
+  border-radius: 999px;
+  background: #fafbf9;
+  font-size: 0.62rem;
+  white-space: nowrap;
+}
+
+.synthetic-badge span {
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background: #7b9e80;
+}
+
+.decision-alert {
+  gap: 0.65rem;
+  margin-top: 1rem;
+  padding: 0.75rem 0.85rem;
+  color: #825e23;
+  border: 1px solid #eadcbf;
+  border-radius: 0.75rem;
+  background: #fbf6eb;
+}
+
+.decision-alert div {
+  display: grid;
+  gap: 0.18rem;
+}
+
+.decision-alert strong {
+  font-size: 0.72rem;
+}
+
+.decision-alert span {
+  color: #6d6049;
+  font-size: 0.66rem;
+}
+
+.response-text {
+  margin: 1.05rem 0;
+  color: #39443c;
+  font-size: 0.83rem;
+  line-height: 1.72;
+  white-space: pre-wrap;
+}
+
+.consideration {
+  margin: 0 0 1rem;
+  padding: 0.8rem 0.9rem;
+  border-left: 3px solid var(--color-gold);
+  border-radius: 0 0.6rem 0.6rem 0;
+  background: #faf8f3;
+}
+
+.consideration-heading {
+  gap: 0.4rem;
+  color: #745c30;
+  font-size: 0.68rem;
+  font-weight: 650;
+}
+
+.consideration p {
+  margin: 0.35rem 0 0;
+  color: #6c716b;
+  font-size: 0.69rem;
+  line-height: 1.55;
+}
+
+.source-card {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.8rem;
+  border: 1px solid #e5eae3;
+  border-radius: 0.75rem;
+  background: #fbfcfa;
+}
+
+.source-mark {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.6rem;
+}
+
+.source-copy {
+  display: grid;
+  min-width: 0;
+  gap: 0.2rem;
+}
+
+.source-copy strong,
+.source-detail strong {
+  overflow-wrap: anywhere;
+  color: #3c493f;
+  font-size: 0.7rem;
+  line-height: 1.4;
+}
+
+.source-id {
+  color: #8b948d;
+  font-size: 0.6rem;
+}
+
+.source-action {
+  padding: 0.45rem 0.62rem;
+  color: var(--color-forest-mid);
+  border: 1px solid #dfe7dd;
+  border-radius: 0.5rem;
+  background: white;
+  font-size: 0.64rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.source-detail {
+  display: grid;
+  grid-column: 1 / -1;
+  gap: 0.4rem;
+  padding: 0.8rem 0.2rem 0.1rem;
+  border-top: 1px solid #e9ede7;
+}
+
+.source-detail span {
+  color: #7d897f;
+  font-size: 0.63rem;
+}
+
+.source-detail p {
+  margin: 0;
+  color: #626e64;
+  font-size: 0.69rem;
+  line-height: 1.6;
+}
+
+.response-actions {
+  min-height: 3.3rem;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  padding-top: 0.55rem;
+}
+
+.response-actions button {
+  gap: 0.35rem;
+  padding: 0.4rem 0.48rem;
+  color: #727d74;
+  border: 0;
+  border-radius: 0.45rem;
+  background: transparent;
+  font-size: 0.64rem;
+  cursor: pointer;
+}
+
+.response-actions button:hover,
+.response-actions button.is-selected {
+  color: var(--color-forest);
+  background: var(--color-forest-soft);
+}
+
+.action-divider {
+  width: 1px;
+  height: 1rem;
+  background: #e6eae5;
+}
+
+.copy-status {
+  margin-left: auto;
+  color: #537258;
+  font-size: 0.62rem;
+}
+
+@media (max-width: 540px) {
+  .response-card {
+    padding: 1rem 0.85rem 0.5rem;
+  }
+
+  .synthetic-badge {
+    max-width: 9rem;
+    white-space: normal;
+  }
+
+  .source-card {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .source-action {
+    grid-column: 2;
+    justify-self: start;
+  }
+}

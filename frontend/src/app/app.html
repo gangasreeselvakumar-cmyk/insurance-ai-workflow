@@ -1,0 +1,19 @@
+<div class="app-frame" [class.menu-open]="menuOpen()">
+  <app-sidebar (closeMenu)="closeMenu()" />
+
+  <div class="shell-main">
+    <app-header (menuToggle)="toggleMenu()" />
+    <main class="workspace" id="main-content">
+      <app-assistant-welcome />
+    </main>
+  </div>
+
+  @if (menuOpen()) {
+    <button
+      class="sidebar-backdrop"
+      type="button"
+      aria-label="Close navigation menu"
+      (click)="closeMenu()"
+    ></button>
+  }
+</div>

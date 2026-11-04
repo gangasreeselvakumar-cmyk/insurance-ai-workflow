@@ -1,0 +1,76 @@
+:host {
+  display: block;
+  min-height: 100vh;
+}
+
+.app-frame {
+  min-height: 100vh;
+  background: var(--color-workspace);
+}
+
+.shell-main {
+  min-width: 0;
+  min-height: 100vh;
+  margin-left: 264px;
+}
+
+.workspace {
+  width: min(100%, 1320px);
+  min-height: calc(100vh - 76px);
+  margin-inline: auto;
+  padding: clamp(2rem, 5.4vw, 5.25rem) clamp(1.25rem, 5.3vw, 5rem) 3.5rem;
+}
+
+.sidebar-backdrop {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .shell-main {
+    margin-left: 232px;
+  }
+}
+
+@media (max-width: 720px) {
+  .shell-main {
+    margin-left: 0;
+  }
+
+  app-sidebar {
+    position: fixed;
+    z-index: 30;
+    inset: 0 auto 0 0;
+    width: min(280px, calc(100vw - 3.25rem));
+    transform: translateX(-102%);
+    transition: transform 180ms ease;
+  }
+
+  .menu-open app-sidebar {
+    transform: translateX(0);
+  }
+
+  .sidebar-backdrop {
+    position: fixed;
+    z-index: 20;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    background: rgb(10 24 14 / 42%);
+  }
+
+  .workspace {
+    min-height: calc(100vh - 68px);
+    padding: 2rem 1rem 2.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
