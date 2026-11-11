@@ -5,6 +5,7 @@
       id="assistant-question"
       rows="2"
       [value]="draft"
+      [disabled]="disabled"
       (input)="updateDraft($event)"
       (keydown.enter)="handleEnter($event)"
       placeholder="Ask a question about submission intake..."
@@ -15,8 +16,8 @@
         <ui-icon name="paperclip" [size]="18" />
         <span>Attach</span>
       </button>
-      <span class="composer-hint">Synthetic examples only</span>
-      <button class="send-button" type="button" [disabled]="!draft.trim()" (click)="submitDraft()" aria-label="Send question to local demonstration">
+      <span class="composer-hint">FastAPI Assistant</span>
+      <button class="send-button" type="button" [disabled]="disabled || !draft.trim()" (click)="submitDraft()" aria-label="Send question to assistant">
         <span>Send</span>
         <ui-icon name="arrow-up" [size]="17" />
       </button>

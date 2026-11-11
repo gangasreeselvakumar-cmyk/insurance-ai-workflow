@@ -14,13 +14,14 @@
     <div class="suggestions-section">
       <div class="section-heading">
         <span>Suggested questions</span>
-        <span class="selection-hint">Choose one to see a local demonstration</span>
+        <span class="selection-hint">Choose one to query the intake FAQ assistant</span>
       </div>
       <div class="suggestion-grid">
         @for (suggestion of suggestions; track suggestion.text) {
           <button
             class="suggestion-card"
             type="button"
+            [disabled]="loading()"
             (click)="selectQuestion(suggestion.text)"
             [attr.aria-label]="'Ask: ' + suggestion.text"
           >
@@ -48,7 +49,7 @@
           Human review required
         </span>
       </div>
-      <app-chat-composer [draft]="draft()" (draftChange)="draft.set($event)" (submitQuestion)="ask($event)" />
+      <app-chat-composer [draft]="draft()" [disabled]="loading()" (draftChange)="draft.set($event)" (submitQuestion)="ask($event)" />
     </div>
 
     <p class="disclaimer">
@@ -60,7 +61,7 @@
         <p class="eyebrow">AI-POWERED INTAKE SUPPORT</p>
         <h1 id="welcome-title">AI Assistant</h1>
       </div>
-      <button class="clear-button" type="button" (click)="clearConversation()">Clear conversation</button>
+      <button class="clear-button" type="button" [disabled]="loading()" (click)="clearConversation()">Clear conversation</button>
     </div>
 
     <div class="conversation-thread" aria-live="polite" aria-label="Conversation">
@@ -71,6 +72,27 @@
         </article>
         <app-assistant-response [response]="turn.response" />
       }
+
+      @if (pendingQuestion(); as pending) {
+        <article class="user-message">
+          <div class="user-bubble">{{ pending }}</div>
+          <span class="user-avatar" aria-label="You">You</span>
+        </article>
+        <article class="thinking-card" aria-label="Assistant is thinking">
+          <span class="thinking-avatar"><ui-icon name="sparkles" [size]="18" /></span>
+          <div class="thinking-body">
+            <span class="thinking-label">Intake Assistant</span>
+            <div class="thinking-status">
+              <span class="thinking-dots" aria-hidden="true">
+                <span class="thinking-dot"></span>
+                <span class="thinking-dot"></span>
+                <span class="thinking-dot"></span>
+              </span>
+              <span class="thinking-text">Thinking...</span>
+            </div>
+          </div>
+        </article>
+      }
     </div>
 
     <app-privacy-notice />
@@ -80,8 +102,8 @@
         <span class="mode-indicator"><ui-icon name="sparkles" [size]="15" /> Guidance mode</span>
         <span class="human-review-label"><ui-icon name="user" [size]="15" /> Human review required</span>
       </div>
-      <app-chat-composer [draft]="draft()" (draftChange)="draft.set($event)" (submitQuestion)="ask($event)" />
-      <p class="disclaimer">Local synthetic demonstration only. No live submissions or underwriting decisions are available.</p>
+      <app-chat-composer [draft]="draft()" [disabled]="loading()" (draftChange)="draft.set($event)" (submitQuestion)="ask($event)" />
+      <p class="disclaimer">Answers are grounded in synthetic policy intake procedures. No live underwriting decisions are made.</p>
     </div>
   }
 </section>

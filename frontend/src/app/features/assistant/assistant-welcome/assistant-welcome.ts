@@ -1,10 +1,10 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { ChatComposerComponent } from '../../../components/chat-composer/chat-composer';
 import { PrivacyNoticeComponent } from '../../../components/privacy-notice/privacy-notice';
 import { IconName, UiIconComponent } from '../../../shared/ui-icon/ui-icon';
 import { AssistantResponseComponent } from '../assistant-response/assistant-response';
 import type { AssistantResponse } from '../assistant-response.model';
-import { getFaqDemoResponse } from '../faq-demo-data';
+import { AssistantChatService } from '../assistant-chat.service';
 
 interface SuggestedQuestion {
   text: string;
@@ -25,8 +25,12 @@ interface ConversationTurn {
   styleUrl: './assistant-welcome.scss',
 })
 export class AssistantWelcomeComponent {
+  private readonly chatService = inject(AssistantChatService);
+
   protected readonly draft = signal('');
   protected readonly conversation = signal(false);
+  protected readonly loading = signal(false);
+  protected readonly pendingQuestion = signal<string | null>(null);
   protected readonly turns = signal<ConversationTurn[]>([]);
 
   protected readonly suggestions: SuggestedQuestion[] = [
@@ -53,23 +57,53 @@ export class AssistantWelcomeComponent {
   ];
 
   protected selectQuestion(question: string): void {
+    if (this.loading()) return;
     this.ask(question);
   }
 
   protected ask(question: string): void {
     const cleanQuestion = question.trim();
-    if (!cleanQuestion) return;
-    this.turns.update((turns) => [...turns, {
-      question: cleanQuestion,
-      response: getFaqDemoResponse(cleanQuestion),
-    }]);
+    if (!cleanQuestion || this.loading()) return;
+
+    this.loading.set(true);
+    this.pendingQuestion.set(cleanQuestion);
     this.draft.set('');
     this.conversation.set(true);
+
+    this.chatService.askQuestion(cleanQuestion).subscribe({
+      next: (response) => {
+        this.turns.update((turns) => [
+          ...turns,
+          {
+            question: cleanQuestion,
+            response,
+          },
+        ]);
+        this.pendingQuestion.set(null);
+        this.loading.set(false);
+      },
+      error: () => {
+        this.turns.update((turns) => [
+          ...turns,
+          {
+            question: cleanQuestion,
+            response: {
+              text: 'Unable to communicate with the assistant. Please try again shortly.',
+              unsupportedAction: false,
+            },
+          },
+        ]);
+        this.pendingQuestion.set(null);
+        this.loading.set(false);
+      },
+    });
   }
 
   protected clearConversation(): void {
     this.conversation.set(false);
     this.turns.set([]);
+    this.pendingQuestion.set(null);
+    this.loading.set(false);
     this.draft.set('');
   }
 }
